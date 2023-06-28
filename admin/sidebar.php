@@ -59,7 +59,7 @@
         </a>
         <div class="collapse" id="form-elements">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"><a class="nav-link" href="review.php">List Siswa Baru</a></li>
+            <li class="nav-item"><a class="nav-link" href="review.php">List Pendaftaran Siswa</a></li>
             
           </ul>
         </div>

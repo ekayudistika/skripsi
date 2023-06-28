@@ -2,7 +2,7 @@
 <?php include 'sidebar.php';
 include '../koneksi.php';
 $no_hp = $_SESSION['nohp'];
-$query_select = "SELECT * FROM pendaftaran_siswa_baru a join data_orang_tua b on a.id_siswa_baru = b.id_siswa_baru ";
+$query_select = "SELECT * FROM pendaftaran_siswa_baru a join data_orang_tua b on a.id_siswa_baru = b.id_siswa_baru join status_review c on a.id_siswa_baru = c.id_siswa_baru ";
 $result = $koneksi->query($query_select);
 ?>
 
@@ -13,9 +13,16 @@ $result = $koneksi->query($query_select);
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Status Pendaftaran</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                              <h4 class="card-title">Status Pendaftaran</h4>
+                            </div>  
+                            <div class="col-md-6">
+                                <input class="form-control" type="text" id="search" onkeyup="myFunction()" placeholder="Search" />
+                            </div>
+                        </div> 
                   <div class="table-responsive">
-                    <table class="table table-striped">
+                    <table class="table table-striped" id="list_siswa">
                       <thead>
                            
                         <tr>
@@ -48,9 +55,13 @@ $result = $koneksi->query($query_select);
                           echo "<td>".$row['id_siswa_baru']."</td>";
                           echo "<td>".$row['nama_lengkap']."</td>";
                           echo "<td>".$row['nama_ayah']. " / ".$row['nama_ibu']."</td>";
-                          echo "<td>".$row['status']."</td>";
                           echo "<td>".$row['keterangan']."</td>";
-                          echo "<td><a href='review_detail.php? id=$row[id_siswa_baru]'>Review</a>";
+                          echo "<td>".$row['status']."</td>";
+                          if ($row['status']== "lengkap"){
+                            echo "<td>Data Sudah lengkap</a>";
+                          }else{
+                            echo "<td><a href='review_detail.php? id=$row[id_siswa_baru]'>Review</a>";
+                          }
                           echo "</tr>";
                          }
                         };
@@ -74,7 +85,29 @@ $result = $koneksi->query($query_select);
     <!-- page-body-wrapper ends -->
   </div>
   <!-- container-scroller -->
+  <script>
+function myFunction() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("search");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("list_siswa");
+  tr = table.getElementsByTagName("tr");
 
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[2];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
   <!-- plugins:js -->
   <script src="../src/vendors/js/vendor.bundle.base.js"></script>
   <!-- endinject -->

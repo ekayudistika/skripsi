@@ -133,17 +133,28 @@ $result = $koneksi->query($query_select);
                           echo "<td>".$row['metode']."</td>";
                         
                           echo "</tr>";
-
-                          
-                          //echo "<td colspan='2' ><center>  </center></td>";
-                          //echo "<td>".$row['metode']."</td>";
-                          
-                          echo "</tr>";
                          }?>
-                          
+                          <form action="review_detail_action.php" method="post">
+                          <input type="text" class="form-control" id="idreg" name="idreg" value="<?php echo $id_reg;?>" placeholder="Tempat" type="hidden">
                           <tr>
-                          <td><button name="berkas_lengkap" id="berkas_lengkap" class="btn-success" onClick='reply_click(this.id,"<?php echo $id_reg; ?>")'>Berkas Lengkap</button></td>
-                          <td><button name='kurang_lengkap' id='kurang_lengkap' class='btn-warning' onClick='reply_click(this.id,"<?php echo $id_reg; ?>")'>Kurang Lengkap</button></td>
+                          <td>Status</td>
+                          <td>
+                          <select class="form-control" name="status" id="status">
+                              <option value="lengkap">Lengkap</option>
+                              <option value="belum_lengkap">Belum Lengkap</option>
+                          </select>
+                          </td>
+                          </tr>
+                          <tr>
+
+                          <tr>
+                          <td>Keterangan</td>
+                          <td><input type="text" class="form-control" id="keterangan" name="keterangan" placeholder="Keterangan"></td>
+                          </tr>
+
+                         
+                          <td><button type="submit" name="Submit" class="btn btn-primary me-2">Submit</button> </td>
+                          <td></td>
                           </tr>
                        <?php };
                        
@@ -167,15 +178,6 @@ $result = $koneksi->query($query_select);
     <!-- page-body-wrapper ends -->
   </div>
   <!-- container-scroller -->
-  <script type="text/javascript">
-  function reply_click(data,id)
-  {
-     location.assign('review_detail_lengkap.php?status='+data+ ' ' + id )
- 
-}
-
-   
-  </script>
   <!-- plugins:js -->
   <script src="../src/vendors/js/vendor.bundle.base.js"></script>
   <!-- endinject -->
