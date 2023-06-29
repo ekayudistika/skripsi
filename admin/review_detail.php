@@ -135,7 +135,7 @@ $result = $koneksi->query($query_select);
                           echo "</tr>";
                          }?>
                           <form action="review_detail_action.php" method="post">
-                          <input type="text" class="form-control" id="idreg" name="idreg" value="<?php echo $id_reg;?>" placeholder="Tempat" type="hidden">
+                          <input id="idreg" name="idreg" value="<?php echo $id_reg;?>" type="hidden">
                           <tr>
                           <td>Status</td>
                           <td>

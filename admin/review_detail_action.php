@@ -13,7 +13,7 @@
     
      // Insert user data into table
      
-     $sql = "INSERT INTO status_review VALUES(1,'$idreg','$keterangan','$status')";
+     $sql = "INSERT INTO status_review VALUES('','$idreg','$keterangan','$status')";
      //echo $koneksi->$result;
      // Show message when user added
      //echo $sql;
