@@ -13,7 +13,7 @@
     
      // Insert user data into table
      
-     $sql = "INSERT INTO status_review VALUES('','$idreg','$keterangan','$status')";
+     $sql = "UPDATE status_review SET status ='$status', keterangan = '$keterangan' where id_siswa_baru = '$idreg' ";
      //echo $koneksi->$result;
      // Show message when user added
      //echo $sql;
