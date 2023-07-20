@@ -13,7 +13,7 @@
     
      // Insert user data into table
      
-     $sql = "INSERT INTO user_login VALUES('','$nohp','$email','$password','user')";
+     $sql = "INSERT INTO user_login VALUES('','$nohp','$email','$password')";
      //echo $koneksi->$result;
      // Show message when user added
      //echo $sql;

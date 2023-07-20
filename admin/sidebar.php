@@ -66,13 +66,26 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" data-bs-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
-          <i class="menu-icon mdi mdi-table"></i>
+          <i class="menu-icon mdi mdi-account"></i>
           <span class="menu-title">Manage User</span>
           <i class="menu-arrow"></i>
         </a>
         <div class="collapse" id="charts">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="manageuser.php">List User</a></li>
+            <li class="nav-item"> <a class="nav-link" href="list_users_admin.php">List User Admin</a></li>
+            <li class="nav-item"> <a class="nav-link" href="list_users.php">List User</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
+          <i class="menu-icon mdi mdi-credit-card"></i>
+          <span class="menu-title">Cek Pembayaran</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="charts">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href="list_users_pembayaran.php">List Pembayaran</a></li>
           </ul>
         </div>
       </li>

@@ -2,10 +2,10 @@
 <?php include 'sidebar.php';
 include '../koneksi.php';
 $no_hp = $_SESSION['nohp'];
-$query_select = "SELECT * FROM pendaftaran_siswa_baru a join data_orang_tua b on a.id_siswa_baru = b.id_siswa_baru join status_review c on a.id_siswa_baru = c.id_siswa_baru ";
+$query_select = "SELECT * FROM user_login " ;
 $result = $koneksi->query($query_select);
+$i = 0;
 ?>
-
 <div class="main-panel">
         <div class="content-wrapper">
           <div class="row">
@@ -27,19 +27,13 @@ $result = $koneksi->query($query_select);
                            
                         <tr>
                           <th>
-                            No Registrasi
+                            No
                           </th>
                           <th>
-                            Nama Lengkap (Calon Siswa)
+                            Email
                           </th>
                           <th>
-                            Nama Wali 
-                          </th>
-                          <th>
-                            Keterangan
-                          </th>
-                          <th>
-                            Status
+                            No Hp
                           </th>
                           <th>
                             Action
@@ -48,21 +42,19 @@ $result = $koneksi->query($query_select);
                       </thead>
                       <tbody>
                       <?php  
-                      if ($result->num_rows > 0) {
-                        while($row = $result->fetch_assoc()) {  
+                      if ($result->num_rows > 0) { 
                         
+                        while($row = $result->fetch_assoc()) {  
+                            $i = $i + 1;
                           echo "<tr>" ;
-                          echo "<td>".$row['id_siswa_baru']."</td>";
-                          echo "<td>".$row['nama_lengkap']."</td>";
-                          echo "<td>".$row['nama_ayah']. " / ".$row['nama_ibu']."</td>";
-                          echo "<td>".$row['keterangan']."</td>";
-                          echo "<td>".$row['status']."</td>";
-                          if ($row['status']== "lengkap"){
-                            echo "<td>Data Sudah lengkap</a>";
-                          }else{
-                            echo "<td><a href='review_detail.php? id=$row[id_siswa_baru]'>Review</a>";
-                          }
+                          echo "<td>".$i."</td>";
+                          echo "<td>".$row['email']."</td>";
+                          echo "<td>".$row['no_hp']."</td>";
+                          
+                          echo "<td><a href='delete_user.php? id=$row[id_siswa_baru]'>Delete</a><td>";
+                          
                           echo "</tr>";
+                          
                          }
                         };
                          ?>
