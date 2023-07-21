@@ -78,12 +78,12 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-bs-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
+        <a class="nav-link" data-bs-toggle="collapse" href="#payment" aria-expanded="false" aria-controls="charts">
           <i class="menu-icon mdi mdi-credit-card"></i>
           <span class="menu-title">Cek Pembayaran</span>
           <i class="menu-arrow"></i>
         </a>
-        <div class="collapse" id="charts">
+        <div class="collapse" id="payment">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item"> <a class="nav-link" href="list_users_pembayaran.php">List Pembayaran</a></li>
           </ul>

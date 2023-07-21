@@ -1,7 +1,6 @@
 <?php include 'header.php';?>
 <?php include 'sidebar.php';
 include '../koneksi.php';
-$no_hp = $_SESSION['nohp'];
 $query_select = "SELECT * FROM user_login " ;
 $result = $koneksi->query($query_select);
 $i = 0;
@@ -50,8 +49,7 @@ $i = 0;
                           echo "<td>".$i."</td>";
                           echo "<td>".$row['email']."</td>";
                           echo "<td>".$row['no_hp']."</td>";
-                          
-                          echo "<td><a href='delete_user.php? id=$row[id_siswa_baru]'>Delete</a><td>";
+                          echo "<td><a href='delete_user.php? id=$row[id]'>Delete</a><td>";
                           
                           echo "</tr>";
                           

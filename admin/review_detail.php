@@ -5,7 +5,6 @@ echo $id;
 include 'header.php';?>
 <?php include 'sidebar.php';
 include '../koneksi.php';
-$no_hp = $_SESSION['nohp'];
 $id_reg = 'kosong';
 $query_select = "SELECT * FROM pendaftaran_siswa_baru a join data_orang_tua b on a.id_siswa_baru = b.id_siswa_baru where a.id_siswa_baru = '$id'";
 $result = $koneksi->query($query_select);
@@ -131,6 +130,26 @@ $result = $koneksi->query($query_select);
                           echo "<tr>" ;
                           echo "<td>Metode Pembelajaran Quran </td>";
                           echo "<td>".$row['metode']."</td>";
+                        
+                          echo "</tr>";
+                          echo "</tr>";
+                          echo "<tr>" ;
+                          echo "<td>KK </td>";
+                          echo "<td><img src=../upload_berkas/".$row['kartu_keluarga']."></td>";
+                        
+                          echo "</tr>";
+                          echo "</tr>";
+                          echo "</tr>";
+                          echo "<tr>" ;
+                          echo "<td>KIA </td>";
+                          echo "<td><img src=../upload_berkas/".$row['kia']."></td>";
+                        
+                          echo "</tr>";
+                          echo "</tr>";
+                          echo "</tr>";
+                          echo "<tr>" ;
+                          echo "<td>AKTA </td>";
+                          echo "<td><img src=../upload_berkas/".$row['akta_kelahiran']."></td>";
                         
                           echo "</tr>";
                          }?>

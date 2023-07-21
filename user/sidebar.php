@@ -10,7 +10,7 @@
       </button>
     </div>
     <div>
-      <a class="navbar-brand brand-logo" href="index.html">
+      <a class="navbar-brand brand-logo" href="index.php">
         <img src="../img/al-khairaat.svg" alt="logo" />
       </a>
       
@@ -72,7 +72,7 @@
         </a>
         <div class="collapse" id="charts">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="hasil.php">Hasil Pengembalian Formulir</a></li>
+            <li class="nav-item"> <a class="nav-link" href="hasil.php">Hasil Pendaftaran</a></li>
           </ul>
         </div>
       </li>

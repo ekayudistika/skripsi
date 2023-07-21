@@ -1,7 +1,7 @@
 <?php include 'header.php';?>
 <?php include 'sidebar.php';
 include '../koneksi.php';
-$no_hp = $_SESSION['nohp'];
+
 $query_select = "SELECT * FROM pendaftaran_siswa_baru a join data_orang_tua b on a.id_siswa_baru = b.id_siswa_baru join status_review c on a.id_siswa_baru = c.id_siswa_baru ";
 $result = $koneksi->query($query_select);
 ?>

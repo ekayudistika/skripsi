@@ -77,6 +77,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						</ul>
 					</li>
           <li><a href="contactus.php">Contact Us</a></li>
+		  <li><a href="login_admin.php">Login Admin</a></li>
 
 				</ul>
 			</div>
@@ -123,7 +124,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </div>
             </div>
             <hr>
-			<h3> <i class="fa fa-phone"> Location </i> </h3>
+			<h3> <i class="fa fa-map-marker"> Location </i> </h3>
             <h5> Jl. Masjid Condet No. 5 Rt.16/03, Batu Ampar Kramat Jati Jakarta Timur 13520</h5>
 		   <br><br>
 		 
@@ -202,12 +203,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<div class="col-md-6 panel">
 						<div class="panel-body">
 							<p class="simplenav">
-								<a href="index.html">Home</a> | 
-								<a href="about.html">About</a> |
-								<a href="courses.html">Courses</a> |
-								<a href="price.html">Price</a> |
-								<a href="videos.html">Videos</a> |
-								<a href="contact.html">Contact</a>
+								
 							</p>
 						</div>
 					</div>

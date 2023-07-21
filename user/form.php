@@ -9,7 +9,7 @@
                   <h2 class="card-title">Input Data Pendaftaran (Data Ayah)</h2>
                   <p class="card-description">
                   </p>
-                  <form class="forms-sample" action="form_action.php" method="post">
+                  <form class="forms-sample" action="form_action.php" method="post" enctype="multipart/form-data">
                   <div class="form-group">
                       <label for="exampleInputUsername1"> Nama </label>
                       <input type="text" class="form-control" id="namaayah" name="namaayah" placeholder="Nama">
@@ -61,7 +61,7 @@
                   <h4 class="card-title">Input Data Pendaftaran (Data Ibu)</h4>
                   <p class="card-description">
                   </p>
-                  <form class="forms-sample" action="form_action.php" method="post">
+                  <form class="forms-sample" action="form_action.php" method="post" enctype="multipart/form-data">
                   <div class="form-group">
                       <label for="exampleInputUsername1"> Nama </label>
                       <input type="text" class="form-control" id="namaibu" name="namaibu" placeholder="Nama">
@@ -108,7 +108,7 @@
                   <h4 class="card-title">Input Data Pendaftaran</h4>
                   <p class="card-description">
                   </p>
-                  <form class="forms-sample" action="form_action.php" method="post">
+                  <form class="forms-sample" action="form_action.php" method="post" enctype="multipart/form-data">
                   <div class="form-group">
                       <label for="exampleInputUsername1"> NIK (Calon Murid) </label>
                       <input type="text" class="form-control" id="nikcamur" name="nikcamur" placeholder="Nama Lengkap">
@@ -262,6 +262,19 @@
                       <label for="exampleInputUsername1"> Metode Quran yang sudah di pelajari </label>
                       <input type="text" class="form-control" id="metode" name="metode" placeholder="Metode">
                     </div>
+                    <div class="form-group">
+                      <label for="exampleInputUsername1"> Upload Kartu Keluarga</label>
+                      <input type="file" name="kk" id="kk" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputUsername1"> Upload KIA</label>
+                      <input type="file" name="kia" id="kia" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputUsername1"> Upload Akta Kelahiran</label>
+                      <input type="file" name="akta" id="akta" class="form-control">
+                    </div>
+                   
                     <button type="submit" name="Submit" class="btn btn-primary me-2">Submit</button>
                     <button class="btn btn-light">Cancel</button>
                   </form>

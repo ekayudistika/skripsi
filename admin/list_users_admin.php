@@ -1,7 +1,6 @@
 <?php include 'header.php';?>
 <?php include 'sidebar.php';
 include '../koneksi.php';
-$no_hp = $_SESSION['nohp'];
 $query_select = "SELECT * FROM admin_login " ;
 $result = $koneksi->query($query_select);
 $i = 0;

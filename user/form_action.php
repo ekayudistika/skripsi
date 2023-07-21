@@ -4,7 +4,7 @@
 
  function noreg(){
     include '../koneksi.php';
-    $query_select = "SELECT id_siswa_baru from pendaftaran_siswa_baru limit 1";
+    $query_select = "SELECT id_siswa_baru from pendaftaran_siswa_baru ORDER by id_siswa_baru desc limit 1";
     $result = $koneksi->query($query_select);
     if ($result->num_rows > 0) {
         // output data of each row
@@ -31,6 +31,7 @@
     else {
         $id_siswa_baru = "ALKH-0001";
     }
+    echo $id_siswa_baru;
     return $id_siswa_baru;
  }
 
@@ -48,6 +49,17 @@
 
 
  }
+ function review($id_siswa_baru){
+    include '../koneksi.php';
+    $sql = "INSERT INTO status_review VALUES('','$id_siswa_baru','belum_lengkap','belum_lengkap')";
+    if ($koneksi->query($sql) == TRUE) {
+       echo "New record created successfully";
+     } else {
+         echo "Error" . $sql . "<br>" . $koneksi->error;
+     }
+   $koneksi->close();
+
+ }
  if(!empty($_POST))
 {
     $id_siswa_baru = noreg();
@@ -58,7 +70,7 @@
     $pekerjaanayah = $_POST['pekerjaanayah'];
     $pendidikanayah = $_POST['pendidikanayah'];
     $penghasilanayah = $_POST['penghasilanayah'];
-    $kebutuhankhususayah = $_POST['kebutuhankhusayah'];
+    $kebutuhankhususayah = $_POST['kebutuhankhususayah'];
     //DATA IBU
     $namaibu = $_POST['namaibu'];
     $tempatibu = $_POST['tempatibu'];
@@ -66,11 +78,28 @@
     $pekerjaanibu = $_POST['pekerjaanibu'];
     $pendidikanibu = $_POST['pendidikanibu'];
     $penghasilanibu = $_POST['penghasilanibu'];
-    $kebutuhankhususibu = $_POST['kebutuhankhusibu'];
+    $kebutuhankhususibu = $_POST['kebutuhankhususibu'];
     inputdataorangtua($id_siswa_baru,$namaayah,$tempatayah,$tlayah,$pekerjaanayah,$pendidikanayah,$penghasilanayah,$kebutuhankhususayah,
     $namaibu,$tempatibu,$tlibu,$pekerjaanibu,$pendidikanibu,$penghasilanibu,$kebutuhankhususibu);
     //DATA MURID
-    
+     $nikcamur = $_POST['nikcamur'];
+     //Upload Files 
+     $target_upload = '../upload_berkas/';
+     $test= $_FILES['kk']['tmp_name'];
+     $kk = $target_upload."KK_".$nikcamur."_".$_FILES['kk']['name'];
+     $kia = $target_upload."KIA_".$nikcamur."_".$_FILES['kia']['name'];
+     $akta = $target_upload."AKTA_".$nikcamur."_".$_FILES['akta']['name'];
+     $filename_kk = "KK_".$nikcamur."_".$_FILES['kk']['name'];
+     $filename_kia = "KIA_".$nikcamur."_".$_FILES['kia']['name'];
+     $filename_akta = "AKTA_".$nikcamur."_".$_FILES['akta']['name'];
+     $temp_kia = $_FILES['kia']['tmp_name'];
+     $temp_kk = $_FILES['kk']['tmp_name'];
+     $temp_akta = $_FILES['akta']['tmp_name'];
+     $Terupload1 = Move_uploaded_file($temp_kk, $kk);
+     $Terupload2 = Move_uploaded_file($temp_kia, $kia);
+     $Terupload3 = Move_uploaded_file($temp_akta, $akta);
+
+     //Get Data Murid 
      $nikcamur = $_POST['nikcamur'];
      $namalengkapcamur = $_POST['namalengkapcamur'];
      $jeniskelamin = $_POST['jeniskelamin'];
@@ -97,7 +126,7 @@
     
      // Insert user data into table
      
-     $sql = "INSERT INTO pendaftaran_siswa_baru VALUES('$id_siswa_baru','$nikcamur','$namalengkapcamur','$jeniskelamin','$tempat','$tl','$alamat','$modatransportasi','$nohp','$email','$tbanak','$bbanak','$goldar','$warna_kulit','$bentuk_wajah','$jenis_rambut','$jarak','$waktu_tempuh','$saudara','$metode','review','')";
+     $sql = "INSERT INTO pendaftaran_siswa_baru VALUES('$id_siswa_baru','$nikcamur','$namalengkapcamur','$jeniskelamin','$tempat','$tl','$alamat','$modatransportasi','$nohp','$email','$tbanak','$bbanak','$goldar','$warna_kulit','$bentuk_wajah','$jenis_rambut','$jarak','$waktu_tempuh','$saudara','$metode','$filename_kk','$filename_kia','$filename_akta')";
      //echo $koneksi->$result;
      // Show message when user added
      //echo $sql;
@@ -105,6 +134,7 @@
      if ($koneksi->query($sql) == TRUE) {
         //echo "New record created successfully";
         //echo "<script>alert('Email dan Nomor Telepon.'$nohp '.' $email'. Berhasil Terdaftar ')</script>";
+        review($id_siswa_baru);
         header("location:index.php");
       } else {
           echo "Error" . $sql . "<br>" . $koneksi->error;

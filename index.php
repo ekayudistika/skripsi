@@ -32,7 +32,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="navbar-header">
 				<!-- Button for smallest screens -->
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-				<a class="navbar-brand" href="index.html">
+				<a class="navbar-brand" href="index.php">
 					<img src="assets/images/logoal.png" alt="Techro HTML5 template"></a>
 			</div>
 			<div class="navbar-collapse collapse">
@@ -304,12 +304,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<div class="col-md-6 panel">
 						<div class="panel-body">
 							<p class="simplenav">
-								<a href="index.html">Home</a> | 
-								<a href="about.html">About</a> |
-								<a href="courses.html">Courses</a> |
-								<a href="price.html">Price</a> |
-								<a href="videos.html">Videos</a> |
-								<a href="contact.html">Contact</a>
+								
 							</p>
 						</div>
 					</div>
